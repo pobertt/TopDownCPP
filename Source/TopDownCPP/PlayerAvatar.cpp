@@ -1,6 +1,4 @@
-#include "PlayerAvatar.h"
 // Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "PlayerAvatar.h"
 
@@ -64,6 +62,8 @@ void APlayerAvatar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UPlayerAvatarAnimInstance* animInst = Cast<UPlayerAvatarAnimInstance>(GetMesh()->GetAnimInstance());
+	animInst->Speed = GetCharacterMovement()->Velocity.Size2D();
 }
 
 // Called to bind functionality to input
